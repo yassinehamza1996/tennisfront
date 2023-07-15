@@ -1,0 +1,35 @@
+:host ::ng-deep .pi-eye,
+:host ::ng-deep .pi-eye-slash {
+  transform: scale(1.6);
+  margin-right: 1rem;
+  color: var(--primary-color) !important;
+}
+
+::ng-deep .container-cls {
+  display: flex;
+  justify-content: center !important;
+  margin-top: 3%;
+  .container-login-cls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container-2-cls {
+    display: flex !important;
+  }
+  .p-password {
+    position: relative !important;
+    display: inline-flex !important;
+    width: 100% !important;
+  }
+  .p-inputtext{
+    width: 100% !important;
+  }
+}
+.btn-cls{
+    display: flex;
+    justify-content: center;
+    .p-button{
+        width: 47% !important;
+    }
+}

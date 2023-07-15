@@ -1,0 +1,12 @@
+[
+    { "name": "Car 1", "brand": "BMW" },
+    { "name": "Car 2", "brand": "Mercedes-Benz" },
+    { "name": "Car 3", "brand": "Audi" },
+    { "name": "Car 4", "brand": "Toyota" },
+    { "name": "Car 5", "brand": "Honda" },
+    { "name": "Car 6", "brand": "Ford" },
+    { "name": "Car 7", "brand": "Chevrolet" },
+    { "name": "Car 8", "brand": "Nissan" },
+    { "name": "Car 9", "brand": "Volkswagen" },
+    { "name": "Car 10", "brand": "Tesla" }
+  ]

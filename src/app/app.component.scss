@@ -1,0 +1,115 @@
+::ng-deep .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  ::ng-deep .title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  ::ng-deep .title-cls{
+ 
+    width: 100%;
+    // border-radius: 5px;
+  }
+  ::ng-deep .nav-cls{
+    width: 100%;
+  }
+  ::ng-deep h3{
+    font-family: Georgia, serif;
+  }
+ ::ng-deep 
+    .p-listbox-list{
+        background: black;
+        color: white;
+    }
+    ::ng-deep .p-listbox .p-listbox-list .p-listbox-item{
+        color:white;
+    }
+  ::ng-deep .radio-cls{
+    padding-top: 11px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start; 
+    color:white     
+  }
+  ::ng-deep .listbox-cls{
+    padding-top: 17px;
+  }
+
+  ::ng-deep .centered {
+    text-align: center;
+  }
+  ::ng-deep .footer {
+    width: 100%;
+    background-color: #f1f1f1;
+    text-align: center;
+    font-size: 20px;
+    font-family: Georgia, serif;
+    padding: 20px 0;
+    position: fixed; /* Add this line */
+    bottom: 0; /* Add this line */
+  }
+  
+  
+  ::ng-deep .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+    max-width: 100% !important;
+  }
+  
+  ::ng-deep .button-cls {
+    position: absolute;
+    bottom: 9%;
+    display: flex;
+    width: 24%;
+    .p-button{
+      width: 112%;
+    }
+    ::ng-deep .p-button:enabled:hover{
+    background : green;
+    color: #ffffff;
+    border-color: green;
+    }
+  }
+  
+  ::ng-deep .popup-cls{
+    ::ng-deep .p-dialog{
+      width: 50%;
+      height: 50%;
+    }
+  }
+  ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+    text-align: center !important;
+    padding-left: 41%;
+    font-family: Georgia, serif;
+  }
+  ::ng-deep .p-dialog .p-dialog-header{
+    background: #0DCAF0;
+  }
+  ::ng-deep .form-cls{
+    padding: 14px;
+  }
+  .label-cls{
+    font-size: 20px;
+    font-family: math;
+    padding-top: 4px;
+  }
+  ::ng-deep .input-form-cls{
+    .p-calendar{
+    width: 100%;
+    }
+    .p-inputtext{
+      width: 100%;
+    }
+    .color-picker-cls{
+      width: 4% !important;
+    }
+    .p-dropdown{
+      width: 100%;
+    }
+  }
+  ::ng-deep .row{
+    padding-top: 10px;
+  }
+ 
+  ::ng-deep .grey-disabled-input {
+    background-color: #f5f5f5;
+    color: #808080;
+  }
+  
