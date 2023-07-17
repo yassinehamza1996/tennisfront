@@ -1,0 +1,45 @@
+<div class="box">
+    <div class="col header">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col content">
+        <div class="card-container" *ngIf="terrainList$ | async as terrainList">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+              <div class="col" *ngFor="let terrain of terrainList">
+                <div class="card">
+                  <img
+                  src="assets/layout/images/{{ terrain.type || 'grass' }}.jpg"
+                    class="card-img-top"
+                    alt="Court Image"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      {{ terrain.name }} -
+                      <span
+                        [ngClass]="{
+                          'text-success': terrain.status === 'available',
+                          'text-danger': terrain.status === 'unavailable'
+                        }"
+                        class="status-span"
+                      >
+                        {{ terrain.status | uppercase }}
+                      </span>
+                    </h5>
+                    <p class="card-text">
+                      {{ terrain.description }}
+                    </p>
+                    <div class="btn-details-cls">
+                      <button type="button" class="btn btn-warning" (click)="showCourtDetail(terrain)">
+                        Show Court Detail
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="col footer">
+        <app-footer></app-footer>
+    </div>
+  </div>

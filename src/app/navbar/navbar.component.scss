@@ -1,0 +1,12 @@
+::ng-deep .profile-cls {
+    .dropdown,
+    .dropdown-center,
+    .dropend,
+    .dropstart,
+    .dropup,
+    .dropup-center {
+      display: flex;
+      flex-direction: row-reverse;
+      position: static !important;
+    }
+  }

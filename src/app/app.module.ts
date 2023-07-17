@@ -18,11 +18,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import {PasswordModule} from 'primeng/password';
+import { RegisterComponent } from './register/register.component';
+import { HomeComponent } from './home/home.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CourtsComponent } from './courts/courts.component';
+import { CourtDetailsComponent } from './court-details/court-details.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    HomeComponent,
+    CourtsComponent,
+    CourtDetailsComponent,
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +54,8 @@ import {PasswordModule} from 'primeng/password';
     DropdownModule,
     HttpClientModule,
     CheckboxModule,
-    PasswordModule
+    PasswordModule,
+    NgbModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent]

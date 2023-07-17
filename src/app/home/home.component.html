@@ -1,0 +1,35 @@
+<div class="box">
+  <div class="col header">
+      <app-navbar></app-navbar>
+  </div>
+  <div class="col content">
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <ngb-carousel
+          *ngIf="images"
+          [interval]="3000"
+          [pauseOnHover]="false"
+          [showNavigationArrows]="true"
+        >
+          <ng-template ngbSlide *ngFor="let image of images">
+            <div class="wrapper-container carousel-img">
+              <img
+                src="assets/layout/images/{{ image.path }}.jpg"
+                alt="{{ image.caption }}"
+              />
+            </div>
+            <div class="carousel-caption">
+              <h3>{{ image.caption }}</h3>
+              <button type="button" class="btn btn-warning" (click)="courselDetail(image)">
+                Show more details
+              </button>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+    </div>
+  </div>
+  <div class="col footer">
+      <app-footer></app-footer>
+  </div>
+</div>

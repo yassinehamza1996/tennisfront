@@ -1,0 +1,65 @@
+::ng-deep .card {
+    width: 93%;
+    border: 2px solid #ccff00;
+}
+
+.card-container {
+  width: 99%;
+  ::ng-deep .col {
+    padding-left: 3.1rem;
+  }
+  ::ng-deep .card-body {
+    max-height: 18vh;
+    height: 16vh;
+    background: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+     justify-content: space-between;
+  }
+}
+.body {
+  background-color: black;
+}
+::ng-deep .profile-cls {
+  .dropdown,
+  .dropdown-center,
+  .dropend,
+  .dropstart,
+  .dropup,
+  .dropup-center {
+    display: flex;
+    flex-direction: row-reverse;
+    position: static !important;
+  }
+}
+
+::ng-deep .card {
+  transition: transform 0.2s;
+}
+
+::ng-deep .card:hover {
+  transform: scale(1.1);
+}
+::ng-deep .card-text {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+::ng-deep .btn-details-cls {
+  display: flex;
+  justify-content: center;
+  ::ng-deep .btn:hover {
+    color: blue;
+    border-color: black;
+    font-weight: bold;
+  }
+}
+.status-span {
+    padding: 4px;
+    font-size: 18px;
+    border: 2px solid;
+    border-radius: 8px;
+  }
+  
