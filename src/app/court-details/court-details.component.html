@@ -1,11 +1,114 @@
-    <div class="box">
-      <div class="col header">
-          <app-navbar></app-navbar>
-      </div>
-      <div class="col content">
-         
-      </div>
-      <div class="col footer">
-          <app-footer></app-footer>
+<div class="box-details">
+  <div class="col header">
+    <app-navbar></app-navbar>
+  </div>
+  <ng-container *ngIf="terrainDetail$ | async as terrain">
+    <div class="col content card-body">
+      <div class="card" style="width: 18rem">
+        <div class="img-cls">
+          <img
+            class="card-img-top"
+            src="assets/layout/images/{{ terrain.type }}.jpg"
+            alt="Card image cap"
+          />
+        </div>
+        <div class="card-body">
+          <div class="card-text">
+            <ul class="ul-list-cls">
+              <li>
+                <span> Court name: {{ terrain.name }}</span>
+              </li>
+              <li>
+                <span> Court Capacity: {{ terrain.capacity }}</span>
+              </li>
+              <li>
+                <span> Court Type: {{ terrain.type }}</span>
+              </li>
+              <li>
+                <span> Court Price: {{ terrain.price }} TND</span>
+              </li>
+              <li>
+                <span> Court Description: {{ terrain.description }}</span>
+              </li>
+              <li>
+                Court Status:
+                <span
+                  [ngClass]="{
+                    'text-success': terrain.status === 'available',
+                    'text-danger': terrain.status === 'unavailable'
+                  }"
+                  class="status-span"
+                >
+                  {{ terrain.status | uppercase }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
+    <div
+      *ngIf="terrain?.type === 'grass'"
+      class="embed-responsive embed-responsive-16by9 frame-cls"
+    >
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/JKpr06tSVq0"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div
+      *ngIf="terrain?.type === 'clay'"
+      class="embed-responsive embed-responsive-16by9 frame-cls"
+    >
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/0LH3rocRd1w"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div
+      *ngIf="terrain?.type === 'hard'"
+      class="embed-responsive embed-responsive-16by9 frame-cls"
+    >
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/sYMfGwOA7jc"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div
+      *ngIf="terrain?.type === 'artificial'"
+      class="embed-responsive embed-responsive-16by9 frame-cls"
+    >
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/6IyAVgU2PXw"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div
+      *ngIf="terrain?.type === 'asphalt'"
+      class="embed-responsive embed-responsive-16by9 frame-cls"
+    >
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/78LbeGw_zls"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div
+      *ngIf="terrain?.type === 'indoors'"
+      class="embed-responsive embed-responsive-16by9 frame-cls"
+    >
+      <iframe
+        class="embed-responsive-item"
+        src="https://www.youtube.com/embed/vO7RyxV2gVM"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </ng-container>
+  <div class="col footer">
+    <app-footer></app-footer>
+  </div>
+</div>

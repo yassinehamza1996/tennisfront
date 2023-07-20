@@ -1,6 +1,15 @@
-::ng-deep .img-fluid{
-    max-width: 100%;
-    height: auto;
-    border: 1px solid;
-    border-radius: 7px
+::ng-deep .img-fluid {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid;
+  border-radius: 7px;
+}
+::ng-deep .login-screen-cls {
+  .row {
+    padding-bottom: 0rem !important;
+  }
+}
+
+::ng-deep body {
+  background-color: #eee !important;
 }

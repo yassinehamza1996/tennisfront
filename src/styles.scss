@@ -15,6 +15,9 @@
     background: blue;
     border-radius: 10px;
 }
-body{
+
+::ng-deep body{
     background: #212529 !important;
 }
+
+

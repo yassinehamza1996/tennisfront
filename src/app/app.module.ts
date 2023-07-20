@@ -25,6 +25,8 @@ import { CourtsComponent } from './courts/courts.component';
 import { CourtDetailsComponent } from './court-details/court-details.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CoursesComponent } from './courses/courses.component';
+import { CoachesComponent } from './coaches/coaches.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { FooterComponent } from './footer/footer.component';
     CourtsComponent,
     CourtDetailsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CoursesComponent,
+    CoachesComponent
   ],
   imports: [
     BrowserModule,

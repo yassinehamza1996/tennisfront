@@ -1,0 +1,32 @@
+<div class="box">
+  <div class="col header">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="col content">
+    <div class="col content">
+      <div class="card-container" *ngIf="coaches$ | async as coachList">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col" *ngFor="let coach of coachList">
+            <div class="card">
+              <img
+              [src]="coach.image" class="card-img-top" alt="Coach Image" 
+                class="card-img-top"
+                alt="Court Image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">COACH NAME : {{ coach.coachName }}</h5>
+                <p class="card-text">AGE : {{ coach.age }}</p>
+                <p class="card-text">CIN : {{ coach.cin }}</p>
+                <p class="card-text">MAIL : {{ coach.mailAddress }}</p>
+                <p class="card-text">PHONE : {{ coach.phoneNumber }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col footer">
+    <app-footer></app-footer>
+  </div>
+</div>

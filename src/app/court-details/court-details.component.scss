@@ -1,0 +1,64 @@
+
+::ng-deep body {
+    background: #212529 !important ;
+  }
+::ng-deep .box-details {
+  margin-bottom: 7rem!important ;
+
+  ::ng-deep .card-body {
+    display: flex!important ;
+    justify-content: center!important ;
+    background: #212529!important ;
+    color: white!important ;
+    width: 100%!important ;
+    padding-left: 1rem !important ;
+    padding-right: 1rem !important ;
+    padding-top: 1rem!important ;
+  }
+  
+  ::ng-deep .card {
+    width: 62% !important ;
+    display: flex !important ;
+    flex-direction: row !important ;
+    border: none !important  ;
+  }
+  
+  ::ng-deep .img-cls {
+    width: 100%!important ;
+    background-color: #212529 !important  ;
+    img {
+      border-radius: 14px !important  ;
+    }
+  }
+  
+  ::ng-deep .card-text {
+    width: 100%!important ;
+    font-size: 23px!important ;
+    font-family: monospace!important ;
+  }
+  
+  ::ng-deep .ul-list-cls {
+    list-style-type: square!important ;
+    li {
+      padding-bottom: 10px!important ;
+    }
+  }
+  .status-span {
+    padding: 4px!important ;
+    font-size: 18px!important ;
+    border: 2px solid!important ;
+    border-radius: 8px!important ;
+  }
+  iframe {
+    width: 66%!important ;
+    height: 54vh!important ;
+    border-radius: 6px!important ;
+  }
+  ::ng-deep .frame-cls {
+    display: flex!important ;
+    flex-direction: row!important ;
+  
+    justify-content: center!important ;
+    align-items: center!important ;
+  }
+}
