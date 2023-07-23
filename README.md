@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## About the project
 
-This project was built to manager the courts and the courses reservation for the Tennis brek academy
+This project was built to manage the courts and the courses reservation for the Tennis brek academy
 
 ## Development server
 
