@@ -34,4 +34,9 @@ export class CoachService {
     const url = `${this.apiUrl + '/coaches'}/${id}`;
     return this.http.delete<void>(url);
   }
+
+  deleteAll(coachList : number[]): Observable<any> {
+    const url = `${this.apiUrl + '/coaches'}/deleteAll`;
+    return this.http.delete<void>(url,{body : coachList});
+  }
 }

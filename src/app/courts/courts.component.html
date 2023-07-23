@@ -3,12 +3,12 @@
         <app-navbar></app-navbar>
     </div>
     <div class="col content">
-        <div class="card-container" *ngIf="terrainList$ | async as terrainList">
+        <div class="card-container">
             <div class="row row-cols-1 row-cols-md-3 g-4">
               <div class="col" *ngFor="let terrain of terrainList">
                 <div class="card">
                   <img
-                  src="assets/layout/images/{{ terrain.type || 'grass' }}.jpg"
+                  [src]="terrain.image"
                     class="card-img-top"
                     alt="Court Image"
                   />

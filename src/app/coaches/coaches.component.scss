@@ -1,71 +1,82 @@
-::ng-deep body{
-    background: #212529 !important;
+::ng-deep body {
+  background: #212529 !important;
 }
-::ng-deep .card {
+::ng-deep .box-coaches{
+  ::ng-deep .card {
     width: 93%;
-    border: 2px solid #ccff00;
-}
-
-.card-container {
-  width: 99%;
-  ::ng-deep .col {
-    padding-left: 3.1rem;
+    border: 3px solid aliceblue;
+    border-radius: 7px;
   }
-  ::ng-deep .card-body {
-    max-height: 21vh;
-    height: 21vh;
-    background: black;
-    color: white;
+  
+  .card-container {
+    width: 99%;
+    ::ng-deep .col {
+      padding-left: 3.1rem;
+    }
+    ::ng-deep .card-body {
+      max-height: 21vh;
+      height: 21vh;
+      background: black;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+  .body {
+    background-color: black;
+  }
+  ::ng-deep .profile-cls {
+    .dropdown,
+    .dropdown-center,
+    .dropend,
+    .dropstart,
+    .dropup,
+    .dropup-center {
+      display: flex;
+      flex-direction: row-reverse;
+      position: static !important;
+    }
+  }
+  
+  ::ng-deep .card {
+    transition: transform 0.2s;
+  }
+  
+  ::ng-deep .card:hover {
+    transform: scale(1.1);
+  }
+  ::ng-deep .card-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  ::ng-deep .btn-details-cls {
     display: flex;
-    flex-direction: column;
-     justify-content: space-between;
+    justify-content: center;
+    ::ng-deep .btn:hover {
+      color: blue;
+      border-color: black;
+      font-weight: bold;
+    }
   }
-}
-.body {
-  background-color: black;
-}
-::ng-deep .profile-cls {
-  .dropdown,
-  .dropdown-center,
-  .dropend,
-  .dropstart,
-  .dropup,
-  .dropup-center {
-    display: flex;
-    flex-direction: row-reverse;
-    position: static !important;
-  }
-}
-
-::ng-deep .card {
-  transition: transform 0.2s;
-}
-
-::ng-deep .card:hover {
-  transform: scale(1.1);
-}
-::ng-deep .card-text {
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-::ng-deep .btn-details-cls {
-  display: flex;
-  justify-content: center;
-  ::ng-deep .btn:hover {
-    color: blue;
-    border-color: black;
-    font-weight: bold;
-  }
-}
-.status-span {
+  .status-span {
     padding: 4px;
     font-size: 18px;
     border: 2px solid;
     border-radius: 8px;
   }
   
-  ::ng-deep body{
+  ::ng-deep body {
     background: #212529 !important;
   }
+  
+  ::ng-deep .card-img-top {
+    max-height: 507px;
+    max-width: 100%;
+    min-height: 507px;
+    min-width: 100%;
+  }
+  
+}

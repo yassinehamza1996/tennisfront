@@ -46,9 +46,20 @@
           <li class="nav-item">
             <a class="nav-link" routerLink="/courses">Courses List</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/coaches">Coaches List</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+              Coaches Section
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" routerLink="/coaches">Coaches List</a>
+              <a class="dropdown-item" routerLink="/addcoach">Add Coach</a>
+              <a class="dropdown-item" routerLink="/managecoaches">Manage Coaches</a>
+            </div>
           </li>
+          <!--ENABLE THIS COMMENTED LINK FOR USERS THE UPPER SECTION WILL BE AVAILABLE FOR THE ADMIN -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="/coaches">Coaches List</a>
+          </li> -->
         </ul>
 
         <div class="d-flex align-items-center profile-cls">

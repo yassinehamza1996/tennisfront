@@ -7,6 +7,8 @@ import { CourtsComponent } from './courts/courts.component';
 import { CourtDetailsComponent } from './court-details/court-details.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoachesComponent } from './coaches/coaches.component';
+import { AddCoachComponent } from './add-coach/add-coach.component';
+import { ManageCoachesComponent } from './manage-coaches/manage-coaches.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'courtdetail/:id', component: CourtDetailsComponent },
   { path: 'courses', component: CoursesComponent },
   { path: 'coaches', component: CoachesComponent },
+  { path: 'addcoach', component: AddCoachComponent },
+  { path : 'managecoaches' , component : ManageCoachesComponent}
 ];
 
 @NgModule({

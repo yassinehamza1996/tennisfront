@@ -9,6 +9,7 @@ export interface Terrain {
     reservations?: Reservation[];
     courtTimeList?: CourtTimeAvailability[];
     closedCourtList?: ClosedCourt[];
+    image? : any;
   }
   export interface Reservation {
     // Define the properties of the Reservation entity if not available

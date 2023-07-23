@@ -27,6 +27,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CoachesComponent } from './coaches/coaches.component';
+import { AddCoachComponent } from './add-coach/add-coach.component';
+import {PanelModule} from 'primeng/panel';
+import {FileUploadModule} from 'primeng/fileupload';
+import { ManageCoachesComponent } from './manage-coaches/manage-coaches.component';
+import { TooltipModule } from 'primeng/tooltip';
+import {ToolbarModule} from 'primeng/toolbar';
+import {ToastModule} from 'primeng/toast';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -39,7 +48,9 @@ import { CoachesComponent } from './coaches/coaches.component';
     NavbarComponent,
     FooterComponent,
     CoursesComponent,
-    CoachesComponent
+    CoachesComponent,
+    AddCoachComponent,
+    ManageCoachesComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +70,15 @@ import { CoachesComponent } from './coaches/coaches.component';
     HttpClientModule,
     CheckboxModule,
     PasswordModule,
-    NgbModule
+    NgbModule,
+    PanelModule,
+    FileUploadModule,
+    TooltipModule,
+    ToolbarModule,
+    ToastModule,
+    ConfirmDialogModule
   ],
-  providers: [CarService],
+  providers: [CarService,MessageService,ConfirmationService],
   bootstrap: [AppComponent]
   
 })

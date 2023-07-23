@@ -1,18 +1,15 @@
-<div class="box">
+<div class="box-coaches">
   <div class="col header">
     <app-navbar></app-navbar>
   </div>
   <div class="col content">
     <div class="col content">
-      <div class="card-container" *ngIf="coaches$ | async as coachList">
+      <div class="card-container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
           <div class="col" *ngFor="let coach of coachList">
             <div class="card">
-              <img
-              [src]="coach.image" class="card-img-top" alt="Coach Image" 
-                class="card-img-top"
-                alt="Court Image"
-              />
+              <img [src]="coach.image" [alt]="coach.coachName" class="card-img-top" />
+              <!-- <img id="myimage" [src]='thumbnail' /> -->
               <div class="card-body">
                 <h5 class="card-title">COACH NAME : {{ coach.coachName }}</h5>
                 <p class="card-text">AGE : {{ coach.age }}</p>

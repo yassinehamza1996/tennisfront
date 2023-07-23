@@ -1,0 +1,155 @@
+<div class="box-manager">
+  <div class="col header">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="col content">
+    <p-toast position="bottom-right"></p-toast>
+
+    <div class="card">
+      <p-toolbar styleClass="p-mb-4">
+        <ng-template pTemplate="left">
+          <button
+            pButton
+            pRipple
+            label="Delete"
+            icon="pi pi-trash"
+            class="p-button-danger"
+            (click)="deleteSelectedCoaches()"
+            [disabled]="!selectedCoach || !selectedCoach.length"
+          ></button>
+        </ng-template>
+
+        <ng-template pTemplate="right">
+          <button
+            pButton
+            pRipple
+            label="Export"
+            icon="pi pi-upload"
+            class="p-button-help"
+            (click)="exportDataToExcel()"
+          ></button>
+        </ng-template>
+      </p-toolbar>
+
+      <p-table
+        #dt
+        [value]="coachList"
+        [rowsPerPageOptions]="[5, 10, 25, 50]"
+        [rows]="10"
+        [paginator]="true"
+        [globalFilterFields]="['coachName', 'age', 'mailAddress', 'cin']"
+        [(selection)]="selectedCoach"
+        [rowHover]="true"
+        dataKey="idCoach"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [showCurrentPageReport]="true"
+      >
+        <ng-template pTemplate="caption">
+          <div class="p-d-flex p-ai-center p-jc-between caption-cls">
+            <h5 class="p-m-0">Manage Coaches</h5>
+            <span class="p-input-icon-left">
+              <i class="pi pi-search"></i>
+              <input
+                pInputText
+                type="text"
+                (input)="dt.filterGlobal($event.target['value'], 'contains')"
+                placeholder="Search By Keywords [Coach Name | Age | Email | Cin]"
+              />
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th style="width: 3rem">
+              <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th pSortableColumn="coachName">
+              Coach Name<p-sortIcon field="coachName"></p-sortIcon>
+            </th>
+            <th pSortableColumn="age">
+              Age<p-sortIcon field="age"></p-sortIcon>
+            </th>
+            <th pSortableColumn="cin">
+              Cin <p-sortIcon field="cin"></p-sortIcon>
+            </th>
+            <th pSortableColumn="mailAddress">
+              Email Address<p-sortIcon field="mailAddress"></p-sortIcon>
+            </th>
+            <th pSortableColumn="phoneNumber">
+              Phone Number<p-sortIcon field="phoneNumber"></p-sortIcon>
+            </th>
+            <th>Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-coach>
+          <tr>
+            <td>
+              <p-tableCheckbox [value]="coach"></p-tableCheckbox>
+            </td>
+            <td>{{ coach.coachName }}</td>
+            <td>{{ coach.age }}</td>
+            <td>{{ coach.cin }}</td>
+            <td>{{ coach.mailAddress }}</td>
+            <td>{{ coach.phoneNumber }}</td>
+            <td>
+              <button
+                pButton
+                pRipple
+                icon="pi pi-pencil"
+                class="p-button-rounded p-button-success p-mr-2"
+                (click)="editCoach(coach)"
+              ></button>
+              &nbsp;
+              <button
+                pButton
+                pRipple
+                icon="pi pi-trash"
+                class="p-button-rounded p-button-danger"
+                (click)="deleteCoach(coach)"
+              ></button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+          <div class="p-d-flex p-ai-center p-jc-between">
+            In total there are {{ coachList ? coachList.length : 0 }} Coaches.
+          </div>
+        </ng-template>
+      </p-table>
+    </div>
+
+    <p-dialog
+      [(visible)]="coachDialog"
+      [style]="{ width: '450px' }"
+      header="Product Details"
+      [modal]="true"
+      styleClass="p-fluid"
+    >
+      <ng-template pTemplate="content"> </ng-template>
+
+      <ng-template pTemplate="footer">
+        <button
+          pButton
+          pRipple
+          label="Cancel"
+          icon="pi pi-times"
+          class="p-button-text"
+          (click)="hideDialog()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          label="Save"
+          icon="pi pi-check"
+          class="p-button-text"
+          (click)="saveCoach()"
+        ></button>
+      </ng-template>
+    </p-dialog>
+
+    <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+  </div>
+  <div class="col footer">
+    <app-footer></app-footer>
+  </div>
+</div>

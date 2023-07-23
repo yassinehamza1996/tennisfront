@@ -1,0 +1,86 @@
+::ng-deep body{
+    background: #212529 !important;
+}
+::ng-deep .card{
+    background: #212529 !important;
+}
+::ng-deep .p-toolbar{
+    background: #212529 !important;
+    border: none;
+}
+
+::ng-deep .p-datatable .p-datatable-header{
+    background: #212529 !important;
+    color: white;
+    border: none !important;
+}
+
+::ng-deep tbody, td, tfoot, th, thead, tr{
+    background: #212529 !important;
+    color: white !important;
+    border: none !important;
+}
+
+::ng-deep .p-paginator{
+    background: #212529 !important;
+    color: white;
+}
+
+::ng-deep .p-paginator .p-paginator-current{
+    color: white;
+}
+
+::ng-deep .p-datatable .p-datatable-footer{
+    background: #212529 !important;
+    border: none !important;
+    color: white;
+}
+
+::ng-deep .p-dropdown{
+    background: #212529 !important;
+    color: white;
+}
+
+::ng-deep .p-dropdown .p-dropdown-label{
+    background: transparent;
+    border: 0 none;
+    color: white;
+}
+::ng-deep .p-paginator{
+    border: none !important;
+}
+::ng-deep .p-confirm-dialog .p-dialog-content{
+    display: flex;
+    align-items: center;
+    background: #212529 !important;
+    color: white;
+    padding-top: 2rem;
+}
+
+::ng-deep .p-dialog .p-dialog-footer{
+    background: #212529 !important;
+    color: white;
+}
+
+::ng-deep .p-dialog.p-confirm-dialog .p-confirm-dialog-icon{
+    color: red;
+}
+
+::ng-deep .caption-cls{
+    .p-inputtext{
+        width: 700px
+    }
+}
+::ng-deep .box-manager{
+    ::ng-deep .card {
+        transition: none !important
+      }
+      
+      ::ng-deep .card:hover {
+        transform: none !important;
+      }
+      ::ng-deep .card {
+        width: 100%;
+        border: none !important;
+      }
+}

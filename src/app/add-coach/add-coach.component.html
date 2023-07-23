@@ -1,0 +1,158 @@
+<div class="box">
+  <div class="col header">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="col content" style="width: 100%; display: flex">
+    <div style="width: 40%; padding-top: 3rem; padding-left: 4rem">
+      <div class="avatar-preview">
+        <img [src]="imageUrl" />
+      </div>
+    </div>
+    <div style="width: 60%">
+      <form [formGroup]="coachForm" >
+        <p-panel>
+          <ng-template pTemplate="header"> ADD COACH </ng-template>
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12 p-md-4">
+              <span class="p-float-label">
+                <input
+                  id="float-input"
+                  type="text"
+                  formControlName="coachName"
+                  required
+                  pInputText
+                />
+                <label for="float-input">Coach Name</label>
+              </span>
+              <small
+                class="p-error"
+                *ngIf="
+                  coachForm.get('coachName').invalid &&
+                  coachForm.get('coachName').dirty
+                "
+              >
+                Coach name is required.
+              </small>
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+              <span class="p-float-label">
+                <input
+                  id="float-input"
+                  type="number"
+                  formControlName="age"
+                  required
+                  pInputText
+                />
+                <label for="float-input">Age</label>
+              </span>
+             
+              <small
+                class="p-error"
+                *ngIf="
+                  coachForm.get('age').invalid && coachForm.get('age').dirty
+                "
+              >
+                Age is required and must be at least 18.
+              </small>
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+              <span class="p-float-label">
+                <input
+                  id="float-input"
+                  type="text"
+                  formControlName="cin"
+                  required
+                  pInputText
+                />
+                <label for="float-input">CIN</label>
+              </span>
+              <small
+                class="p-error"
+                *ngIf="
+                  coachForm.get('cin').invalid && coachForm.get('cin').dirty
+                "
+              >
+                CIN is required.
+              </small>
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+              <span class="p-float-label">
+                <input
+                  id="float-input-mailAddress"
+                  type="email"
+                  formControlName="mailAddress"
+                  required
+                  pInputText
+                />
+                <label for="float-input-mailAddress">Email</label>
+              </span>
+              <small
+                class="p-error"
+                *ngIf="
+                  coachForm.get('mailAddress').invalid &&
+                  coachForm.get('mailAddress').dirty
+                "
+              >
+                Email is required and must be a valid email address.
+              </small>
+            </div>
+            <div class="p-field p-col-12 p-md-4">
+              <span class="p-float-label">
+                <input
+                  id="float-input"
+                  type="text"
+                  formControlName="phoneNumber"
+                  required
+                  pInputText
+                />
+                <label for="float-input">Phone Number</label>
+              </span>
+              <small
+                class="p-error"
+                *ngIf="
+                  coachForm.get('phoneNumber').invalid &&
+                  coachForm.get('phoneNumber').dirty
+                "
+              >
+                Phone number is required.
+              </small>
+            </div>
+            <div class="p-field p-col-12">
+              <p-fileUpload
+                chooseLabel="Choose file"
+                mode="advanced"
+                accept="image/*"
+                [auto]="true"
+                [showCancelButton]="true"
+                [showUploadButton]="true"
+                [customUpload]="true"
+                (onSelect)="onUploadImage($event, $event.files)"
+              ></p-fileUpload>
+            </div>
+          </div>
+          <ng-template pTemplate="footer">
+            <div class="p-d-flex p-jc-end btn-cls">
+              <button
+                pButton
+                type="submit"
+                label="Submit"
+                (click)="onSubmit()"
+                [disabled]="!coachForm.valid"
+              ></button>
+              <button
+                pButton
+                class="btn btn-danger"
+                type="reset"
+                label="Reset"
+              ></button>
+            </div>
+          </ng-template>
+        </p-panel>
+      </form>
+    </div>
+  </div>
+  <div class="col footer">
+    <app-footer></app-footer>
+  </div>
+</div>
+<p-toast position="bottom-right"></p-toast>
