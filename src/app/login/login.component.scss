@@ -9,3 +9,15 @@
     border: 1px solid;
     border-radius: 7px
 }
+::ng-deep .password{
+  border: none !important;
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+  .p-password{
+    width: 100% !important;
+  }
+  .p-inputtext{
+    width: 100% !important;
+    height: 41px;
+  }
+}

@@ -1,0 +1,20 @@
+::ng-deep body{
+    background: #212529 !important;
+}
+h3{
+    display: flex;
+    justify-content: center;
+    color: burlywood;
+}
+.short-title{
+    font-size: 17px;
+    font-family: inherit;
+    font-weight: bold;
+    color: burlywood;
+    padding-top: 1rem;
+}
+.warning {
+    color: red;
+    font-size: 17px;
+    font-weight: 900;
+}

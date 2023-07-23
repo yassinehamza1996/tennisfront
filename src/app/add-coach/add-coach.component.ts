@@ -3,7 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Coach } from '../models/coach.model';
 import { CoachService } from '../services/coach.service';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-coach',
@@ -23,8 +23,24 @@ export class AddCoachComponent implements OnInit {
     private formBuilder: FormBuilder,
     private coachService: CoachService,
     private messageService : MessageService,
-    private router : Router
-  ) {}
+    private router : Router,
+    private activeRoute: ActivatedRoute
+  ) {
+    let coachId = this.activeRoute.snapshot.params['id'];
+    if (coachId) {
+      this.coachService.getCoach(coachId).subscribe(coach=>{
+        console.log(coach)
+        this.coachForm.get('idCoach').setValue(coach.idCoach)
+        this.coachForm.get('coachName').setValue(coach.coachName)
+        this.coachForm.get('age').setValue(coach.age)
+        this.coachForm.get('cin').setValue(coach.cin)
+        this.coachForm.get('mailAddress').setValue(coach.mailAddress)
+        this.coachForm.get('phoneNumber').setValue(coach.phoneNumber)
+        this.coachForm.get('image').setValue('data:image/jpeg;base64,' + coach.image)
+        this.imageUrl = this.coachForm.value.image
+      })
+    }
+  }
 
   ngOnInit(): void {
     this.initForm();
@@ -43,7 +59,7 @@ export class AddCoachComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.coachForm.valid) {
+    if (this.coachForm.valid && !this.coachForm.value.idCoach) {
       this.coachService.createCoach(this.coachForm.value).subscribe((res) => {
         this.messageService.add({
           severity: 'success',
@@ -63,7 +79,27 @@ export class AddCoachComponent implements OnInit {
           life: 3000,
         });
       });
-    } 
+    }else{
+      this.coachService.updateCoach(this.coachForm.value.idCoach,this.coachForm.value).subscribe((res) => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Successful',
+          detail: this.coachForm.value.coachName + 'Saved Successfully',
+          life: 3000,
+        });
+        setTimeout(()=>{                           
+          this.router.navigate(['managecoaches'])
+     }, 1000);
+      },
+      (error)=>{
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: error,
+          life: 3000,
+        });
+      });
+    }
   }
 
   onUploadImage(event, files) {

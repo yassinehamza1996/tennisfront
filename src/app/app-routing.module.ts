@@ -9,6 +9,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { CoachesComponent } from './coaches/coaches.component';
 import { AddCoachComponent } from './add-coach/add-coach.component';
 import { ManageCoachesComponent } from './manage-coaches/manage-coaches.component';
+import { TermsComponent } from './terms/terms.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent },
   { path: 'coaches', component: CoachesComponent },
   { path: 'addcoach', component: AddCoachComponent },
-  { path : 'managecoaches' , component : ManageCoachesComponent}
+  { path: 'managecoaches', component: ManageCoachesComponent },
+  { path: 'editcoach/:id', component: AddCoachComponent },
+  { path: 'terms', component: TermsComponent },
 ];
 
 @NgModule({

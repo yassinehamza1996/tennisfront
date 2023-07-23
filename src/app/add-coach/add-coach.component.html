@@ -4,7 +4,10 @@
   </div>
   <div class="col content" style="width: 100%; display: flex">
     <div style="width: 40%; padding-top: 3rem; padding-left: 4rem">
-      <div class="avatar-preview">
+      <div *ngIf="coachForm.value.image == undefined" class="avatar-preview">
+        <img [src]="imageUrl" />
+      </div>
+      <div  *ngIf="coachForm.value.image != undefined" class="avatar-preview">
         <img [src]="imageUrl" />
       </div>
     </div>
@@ -119,7 +122,7 @@
             </div>
             <div class="p-field p-col-12">
               <p-fileUpload
-                chooseLabel="Choose file"
+                chooseLabel="Choose image"
                 mode="advanced"
                 accept="image/*"
                 [auto]="true"
@@ -136,6 +139,7 @@
                 pButton
                 type="submit"
                 label="Submit"
+                icon="pi pi-check"
                 (click)="onSubmit()"
                 [disabled]="!coachForm.valid"
               ></button>
@@ -144,6 +148,7 @@
                 class="btn btn-danger"
                 type="reset"
                 label="Reset"
+                icon="pi pi-times"
               ></button>
             </div>
           </ng-template>

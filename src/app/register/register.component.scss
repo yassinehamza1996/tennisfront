@@ -13,3 +13,31 @@
 ::ng-deep body {
   background-color: #eee !important;
 }
+::ng-deep .password{
+  border: none !important;
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+  .p-password{
+    width: 100% !important;
+  }
+  .p-inputtext{
+    width: 100% !important;
+  }
+}
+::ng-deep .btn-outline-danger{
+  width: 100%;
+}
+::ng-deep .btn-outline-primary{
+  width: 100%;
+}
+
+::ng-deep .iti input, .iti input[type=text], .iti input[type=tel]{
+  width: 100%;
+    border-radius: 3px;
+    height: 49px;
+    border: var(--bs-border-width) solid var(--bs-border-color);  
+}
+
+::ng-deep .iti{
+  display: flex !important;
+}

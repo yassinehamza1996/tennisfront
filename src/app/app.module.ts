@@ -36,6 +36,8 @@ import {ToolbarModule} from 'primeng/toolbar';
 import {ToastModule} from 'primeng/toast';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { TermsComponent } from './terms/terms.component';
+import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     CoursesComponent,
     CoachesComponent,
     AddCoachComponent,
-    ManageCoachesComponent
+    ManageCoachesComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { ConfirmationService, MessageService } from 'primeng/api';
     TooltipModule,
     ToolbarModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    NgxIntlTelInputModule
   ],
   providers: [CarService,MessageService,ConfirmationService],
   bootstrap: [AppComponent]

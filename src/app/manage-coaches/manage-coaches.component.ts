@@ -3,6 +3,7 @@ import { CoachService } from '../services/coach.service';
 import { Coach } from '../models/coach.model';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ExcelService } from '../services/excel-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manage-coaches',
@@ -13,14 +14,15 @@ export class ManageCoachesComponent {
   coachList: Coach[] = [];
   selectedCoach: Coach[] = [];
   coach: Coach;
-  coachDialog: boolean = false;
+
   submitted: boolean;
   reload : boolean = false;
   constructor(
     private coachService: CoachService,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-    private excelService: ExcelService
+    private excelService: ExcelService,
+    private router : Router
   ) {
     this.coachService.getCoaches().subscribe((coaches) => {
       this.coachList = coaches;
@@ -54,8 +56,8 @@ export class ManageCoachesComponent {
   }
 
   editCoach(coach) {
-    this.coach = { ...coach };
-    this.coachDialog = true;
+    console.log(coach)
+    this.router.navigate(['editcoach/'+coach.idCoach])
   }
 
   deleteCoach(coach: Coach) {
@@ -79,10 +81,7 @@ export class ManageCoachesComponent {
       },
     });
   }
-  hideDialog() {
-    this.coachDialog = false;
-    this.submitted = false;
-  }
+
   saveCoach(){
 
   }
