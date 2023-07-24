@@ -14,7 +14,9 @@ export class NavbarComponent {
   constructor(private authService: AuthService, private router: Router,private userService : UserService) {
     this.userService.getUserByUsername(localStorage.getItem('currentUser')).subscribe(res=>{
       console.log(res)
-      this.imgUrl = 'data:image/jpeg;base64,' + res.image
+      if(res.image != undefined){
+        this.imgUrl = 'data:image/jpeg;base64,' + res.image
+      }
     })
   }
 

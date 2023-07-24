@@ -40,6 +40,8 @@ import { TermsComponent } from './terms/terms.component';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { ProfileComponent } from './profile/profile.component';
+import { AddCourtComponent } from './add-court/add-court.component';
+import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { ProfileComponent } from './profile/profile.component';
     AddCoachComponent,
     ManageCoachesComponent,
     TermsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddCourtComponent,
+    ManageCourtsComponent
   ],
   imports: [
     BrowserModule,

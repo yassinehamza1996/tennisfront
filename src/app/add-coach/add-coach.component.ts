@@ -18,7 +18,7 @@ export class AddCoachComponent implements OnInit {
   editFile: boolean = true;
   removeUpload: boolean = false;
   @ViewChild('fileInput') el: ElementRef;
-
+  coachId : number;
   constructor(
     private formBuilder: FormBuilder,
     private coachService: CoachService,
@@ -26,9 +26,9 @@ export class AddCoachComponent implements OnInit {
     private router : Router,
     private activeRoute: ActivatedRoute
   ) {
-    let coachId = this.activeRoute.snapshot.params['id'];
-    if (coachId) {
-      this.coachService.getCoach(coachId).subscribe(coach=>{
+    this.coachId = this.activeRoute.snapshot.params['id'];
+    if (this.coachId) {
+      this.coachService.getCoach(this.coachId).subscribe(coach=>{
         console.log(coach)
         this.coachForm.get('idCoach').setValue(coach.idCoach)
         this.coachForm.get('coachName').setValue(coach.coachName)
@@ -59,6 +59,12 @@ export class AddCoachComponent implements OnInit {
   }
 
   onSubmit(): void {
+    if(this.coachForm.value.image != undefined ){
+      if(this.coachForm.value.image.includes(',')){
+        let index = this.coachForm.value.image.indexOf(',')
+        this.coachForm.value.image = this.coachForm.value.image.substring(index+1,this.coachForm.value.length)
+      }
+    }
     if (this.coachForm.valid && !this.coachForm.value.idCoach) {
       this.coachService.createCoach(this.coachForm.value).subscribe((res) => {
         this.messageService.add({

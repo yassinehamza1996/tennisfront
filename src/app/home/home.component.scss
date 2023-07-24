@@ -11,7 +11,9 @@
     min-height: 86.6vh;
   }
 }
-
+::ng-deep body{
+  background: #212529 !important;
+}
 
 ::ng-deep .carousel-control-next-icon {
   background-color: black !important;

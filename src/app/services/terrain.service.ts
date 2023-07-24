@@ -32,4 +32,9 @@ export class TerrainService {
   deleteTerrain(idTerrain: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/terrains/${idTerrain}`);
   }
+
+  deleteAllTerrain(coachList: number[]): Observable<void> {
+    const url = `${this.baseUrl + '/terrains'}/deleteAll`;
+    return this.http.delete<void>(url,{body : coachList});
+  }
 }

@@ -14,7 +14,7 @@
     <div style="width: 60%">
       <form [formGroup]="coachForm" >
         <p-panel>
-          <ng-template pTemplate="header"> ADD COACH </ng-template>
+          <ng-template pTemplate="header"> <p *ngIf="coachId == undefined">ADD COACH</p> <p *ngIf="coachId != undefined">EDIT COACH</p> </ng-template>
           <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-12 p-md-4">
               <span class="p-float-label">

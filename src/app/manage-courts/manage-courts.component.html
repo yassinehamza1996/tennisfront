@@ -1,0 +1,129 @@
+<div class="box-manager">
+    <div class="col header">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="col content">
+      <p-toast position="bottom-right"></p-toast>
+  
+      <div class="card">
+        <p-toolbar styleClass="p-mb-4">
+          <ng-template pTemplate="left">
+            <button
+              pButton
+              pRipple
+              label="Delete"
+              icon="pi pi-trash"
+              class="p-button-danger"
+              (click)="deleteselectedCourtes()"
+              [disabled]="!selectedCourt || !selectedCourt.length"
+            ></button>
+          </ng-template>
+  
+          <ng-template pTemplate="right">
+            <button
+              pButton
+              pRipple
+              label="Export"
+              icon="pi pi-upload"
+              class="p-button-help"
+              (click)="exportDataToExcel()"
+            ></button>
+          </ng-template>
+        </p-toolbar>
+  
+        <p-table
+          #dt
+          [value]="courtsList"
+          [rowsPerPageOptions]="[5, 10, 25, 50]"
+          [rows]="10"
+          [paginator]="true"
+          [globalFilterFields]="['name', 'capacity', 'price', 'status','type']"
+          [(selection)]="selectedCourt"
+          [rowHover]="true"
+          dataKey="idTerrain"
+          currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+          [showCurrentPageReport]="true"
+        >
+          <ng-template pTemplate="caption">
+            <div class="p-d-flex p-ai-center p-jc-between caption-cls">
+              <h5 class="p-m-0">Manage Courts</h5>
+              <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input
+                  pInputText
+                  type="text"
+                  (input)="dt.filterGlobal($event.target['value'], 'contains')"
+                  placeholder="Search By Keywords [court Name | capacity | price | status | type]"
+                />
+              </span>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th pSortableColumn="name">
+                Court Name<p-sortIcon field="name"></p-sortIcon>
+              </th>
+              <th pSortableColumn="capacity">
+                Capacity<p-sortIcon field="capacity"></p-sortIcon>
+              </th>
+              <th pSortableColumn="price">
+                Price <p-sortIcon field="price"></p-sortIcon>
+              </th>
+              <th pSortableColumn="status">
+                Status<p-sortIcon field="status"></p-sortIcon>
+              </th>
+              <th pSortableColumn="type">
+                Type<p-sortIcon field="type"></p-sortIcon>
+              </th>
+              <th style="width: 8%;">Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-court>
+            <tr>
+              <td>
+                <p-tableCheckbox [value]="court"></p-tableCheckbox>
+              </td>
+              <td>{{ court.name }}</td>
+              <td>{{ court.capacity }}</td>
+              <td>{{ court.price }}</td>
+              <td><span [ngClass]="getCourtStatusClass(court.status)">{{ court.status | uppercase}}</span></td>
+              <td>{{ court.type }}</td>
+              <td>
+                <button
+                  pButton
+                  pRipple
+                  icon="pi pi-pencil"
+                  class="p-button-rounded p-button-success p-mr-2"
+                  (click)="editCourt(court)"
+                ></button>
+                &nbsp;
+                <button
+                  pButton
+                  pRipple
+                  icon="pi pi-trash"
+                  class="p-button-rounded p-button-danger"
+                  (click)="deleteCourt(court)"
+                ></button>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="summary">
+            <div class="p-d-flex p-ai-center p-jc-between">
+              In total there are {{ courtsList ? courtsList.length : 0 }} Courts.
+            </div>
+          </ng-template>
+        </p-table>
+      </div>
+  
+   
+  
+      <p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+    </div>
+    <div class="col footer">
+      <app-footer></app-footer>
+    </div>
+  </div>
+  

@@ -12,6 +12,8 @@ import { ManageCoachesComponent } from './manage-coaches/manage-coaches.componen
 import { TermsComponent } from './terms/terms.component';
 import { AuthGuard } from './services/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { AddCourtComponent } from './add-court/add-court.component';
+import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,8 +24,11 @@ const routes: Routes = [
   { path: 'courses', component: CoursesComponent , canActivate: [AuthGuard]},
   { path: 'coaches', component: CoachesComponent , canActivate: [AuthGuard]},
   { path: 'addcoach', component: AddCoachComponent , canActivate: [AuthGuard]},
+  { path: 'addcourt', component: AddCourtComponent , canActivate: [AuthGuard]},
   { path: 'managecoaches', component: ManageCoachesComponent , canActivate: [AuthGuard] },
+  { path: 'managecourts', component: ManageCourtsComponent , canActivate: [AuthGuard] },
   { path: 'editcoach/:id', component: AddCoachComponent , canActivate: [AuthGuard]},
+  { path: 'editcourt/:id', component: AddCourtComponent , canActivate: [AuthGuard]},
   { path: 'profile/:id', component: ProfileComponent , canActivate: [AuthGuard]},
   { path: 'terms', component: TermsComponent },
 ];

@@ -1,0 +1,178 @@
+<div class="box">
+    <div class="col header">
+      <app-navbar></app-navbar>
+    </div>
+    <div class="col content" style="width: 100%; display: flex; padding-bottom: 7rem;">
+      <div style="width: 40%; padding-top: 3rem; padding-left: 4rem">
+        <div *ngIf="courtForm.value.image == undefined" class="avatar-preview">
+          <img [src]="imageUrl" />
+        </div>
+        <div  *ngIf="courtForm.value.image != undefined" class="avatar-preview">
+          <img [src]="imageUrl" />
+        </div>
+      </div>
+      <div style="width: 60%">
+        <form [formGroup]="courtForm" >
+          <p-panel>
+            <ng-template pTemplate="header"> <p *ngIf="courtId == undefined">ADD COURT</p> <p *ngIf="courtId != undefined">EDIT COURT</p> </ng-template>
+            <div class="p-fluid p-formgrid p-grid">
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input
+                    id="float-input"
+                    type="text"
+                    formControlName="name"
+                    required
+                    pInputText
+                  />
+                  <label for="float-input">Court Name</label>
+                </span>
+                <small
+                  class="p-error"
+                  *ngIf="
+                    courtForm.get('name').invalid &&
+                    courtForm.get('name').dirty
+                  "
+                >
+                   name is required.
+                </small>
+              </div>
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input
+                    id="float-input"
+                    type="number"
+                    formControlName="capacity"
+                    required
+                    pInputText
+                  />
+                  <label for="float-input">Capacity</label>
+                </span>
+               
+                <small
+                  class="p-error"
+                  *ngIf="
+                    courtForm.get('capacity').invalid && courtForm.get('capacity').dirty
+                  "
+                >
+                capacity is required.
+                </small>
+              </div>
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                    <p-dropdown [showClear]="true" placeholder="Status" [options]="statusList" formControlName="status" ></p-dropdown>
+                  
+                </span>
+                <small
+                  class="p-error"
+                  *ngIf="
+                    courtForm.get('status').invalid && courtForm.get('status').dirty
+                  "
+                >
+                  Status is required.
+                </small>
+              </div>
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input
+                    id="float-input-price"
+                    type="email"
+                    formControlName="price"
+                    required
+                    pInputText
+                  />
+                  <label for="float-input-price">Price</label>
+                </span>
+                <small
+                  class="p-error"
+                  *ngIf="
+                    courtForm.get('price').invalid &&
+                    courtForm.get('price').dirty
+                  "
+                >
+                  Price is required.
+                </small>
+              </div>
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input
+                    id="float-input"
+                    type="text"
+                    formControlName="description"
+                    required
+                    pInputText
+                  />
+                  <label for="float-input">Description</label>
+                </span>
+                <small
+                  class="p-error"
+                  *ngIf="
+                    courtForm.get('description').invalid &&
+                    courtForm.get('description').dirty
+                  "
+                >
+                  Description is required.
+                </small>
+              </div>
+              <div class="p-field p-col-12 p-md-4">
+                <span class="p-float-label">
+                  <input
+                    id="float-input"
+                    type="text"
+                    formControlName="type"
+                    required
+                    pInputText
+                  />
+                  <label for="float-input">Type</label>
+                </span>
+                <small
+                  class="p-error"
+                  *ngIf="
+                    courtForm.get('type').invalid &&
+                    courtForm.get('type').dirty
+                  "
+                >
+                  Type is required.
+                </small>
+              </div>
+              <div class="p-field p-col-12">
+                <p-fileUpload
+                  chooseLabel="Choose image"
+                  mode="advanced"
+                  accept="image/*"
+                  [auto]="true"
+                  [showCancelButton]="true"
+                  [showUploadButton]="true"
+                  [customUpload]="true"
+                  (onSelect)="onUploadImage($event, $event.files)"
+                ></p-fileUpload>
+              </div>
+            </div>
+            <ng-template pTemplate="footer">
+              <div class="p-d-flex p-jc-end btn-cls">
+                <button
+                  pButton
+                  type="submit"
+                  label="Submit"
+                  icon="pi pi-check"
+                  (click)="onSubmit()"
+                  [disabled]="!courtForm.valid"
+                ></button>
+                <button
+                  pButton
+                  class="btn btn-danger"
+                  type="reset"
+                  label="Reset"
+                  icon="pi pi-times"
+                ></button>
+              </div>
+            </ng-template>
+          </p-panel>
+        </form>
+      </div>
+    </div>
+    <div class="col footer">
+      <app-footer></app-footer>
+    </div>
+  </div>
+  <p-toast position="bottom-right"></p-toast>
