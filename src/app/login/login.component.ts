@@ -24,7 +24,9 @@ export class LoginComponent {
     userDto.username = this.username;
     userDto.password = this.password;
     this.authService.loginUser(userDto).subscribe({
-      next: () => {
+      next: (res) => {
+        this.authService.setToken(res.accessToken)
+        this.authService.storeCurrentUser()
         this.messageService.add({
           severity: 'success',
           summary: 'Successful',
@@ -43,9 +45,9 @@ export class LoginComponent {
         });
       },
       complete: () => {
-        setTimeout(() => {
+
           this.router.navigate(['home']);
-        }, 500);
+
       },
     });
   }

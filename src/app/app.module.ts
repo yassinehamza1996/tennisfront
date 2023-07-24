@@ -14,7 +14,7 @@ import {CalendarModule} from 'primeng/calendar';
 import {ColorPickerModule} from 'primeng/colorpicker';
 import {DropdownModule} from 'primeng/dropdown';
 import { CarService } from './services/carBrandsService.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import {PasswordModule} from 'primeng/password';
@@ -38,6 +38,8 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { TermsComponent } from './terms/terms.component';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+import { JwtInterceptor } from './services/jwt.interceptor';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,8 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     CoachesComponent,
     AddCoachComponent,
     ManageCoachesComponent,
-    TermsComponent
+    TermsComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +85,8 @@ import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
     ConfirmDialogModule,
     NgxIntlTelInputModule
   ],
-  providers: [CarService,MessageService,ConfirmationService],
+  providers: [CarService,MessageService,ConfirmationService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } ],
   bootstrap: [AppComponent]
   
 })

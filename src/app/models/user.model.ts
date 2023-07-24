@@ -9,5 +9,6 @@ export interface UserDTO {
     phoneNumber?: string;
     mailAddress?: string;
     role?: string;
+    image? : any
   }
   

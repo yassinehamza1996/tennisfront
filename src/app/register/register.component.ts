@@ -51,7 +51,7 @@ export class RegisterComponent {
   onSubmit() {
     console.log(this.registerForm.value);
     this.registerForm.value.phoneNumber =
-      this.registerForm.value.phoneNumber.internationalNumber;
+      this.registerForm.value.phoneNumber.nationalNumber;
     console.log(this.registerForm.value);
     const userDto = {} as UserDTO;
     userDto.username = this.registerForm.value.username;

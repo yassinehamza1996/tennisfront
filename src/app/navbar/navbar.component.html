@@ -2,7 +2,7 @@
     <!-- Container wrapper -->
     <div class="container">
       <!-- Navbar brand -->
-      <a class="navbar-brand me-2" href="https://mdbgo.com/">
+      <a class="navbar-brand me-2" routerLink="/home">
         <img
           src="assets/layout/images/logo.png"
           height="16"
@@ -78,6 +78,7 @@
               data-mdb-toggle="dropdown"
               aria-expanded="false"
             >
+            <div *ngIf="imgUrl == undefined">
               <img
                 src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
                 class="rounded-circle"
@@ -85,16 +86,24 @@
                 alt="Black and White Portrait of a Man"
                 loading="lazy"
               />
+            </div>
+            <div *ngIf="imgUrl != undefined">
+              <img [src]="imgUrl" 
+              class="rounded-circle"
+              height="25"
+              alt="Black and White Portrait of a Man"
+              loading="lazy"/>
+            </div>
             </a>
             <ul
               class="dropdown-menu dropdown-menu-end"
               aria-labelledby="navbarDropdownMenuAvatar"
             >
               <li>
-                <a class="dropdown-item" href="#">My profile</a>
+                <button class="dropdown-item" (click)="editProfile()">My profile</button>
               </li>
               <li>
-                <a class="dropdown-item" href="#">Logout</a>
+                <button class="dropdown-item"  (click)="logOut()">Logout</button>
               </li>
             </ul>
           </div>
