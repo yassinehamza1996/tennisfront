@@ -14,6 +14,7 @@ import { AuthGuard } from './services/auth.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { AddCourtComponent } from './add-court/add-court.component';
 import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
+import { BookingComponent } from './booking/booking.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'coaches', component: CoachesComponent , canActivate: [AuthGuard]},
   { path: 'addcoach', component: AddCoachComponent , canActivate: [AuthGuard]},
   { path: 'addcourt', component: AddCourtComponent , canActivate: [AuthGuard]},
+  { path: 'book', component: BookingComponent , canActivate: [AuthGuard]},
   { path: 'managecoaches', component: ManageCoachesComponent , canActivate: [AuthGuard] },
   { path: 'managecourts', component: ManageCourtsComponent , canActivate: [AuthGuard] },
   { path: 'editcoach/:id', component: AddCoachComponent , canActivate: [AuthGuard]},

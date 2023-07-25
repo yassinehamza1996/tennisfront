@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {InputTextModule} from 'primeng/inputtext';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ButtonModule} from 'primeng/button';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -40,8 +41,12 @@ import { TermsComponent } from './terms/terms.component';
 import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { JwtInterceptor } from './services/jwt.interceptor';
 import { ProfileComponent } from './profile/profile.component';
-import { AddCourtComponent } from './add-court/add-court.component';
+import { AddCourtComponent } from './add-court/add-court.component'; 
 import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
+import { BookingComponent } from './booking/booking.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+
+
 
 @NgModule({
   declarations: [
@@ -60,7 +65,8 @@ import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
     TermsComponent,
     ProfileComponent,
     AddCourtComponent,
-    ManageCourtsComponent
+    ManageCourtsComponent,
+    BookingComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +84,7 @@ import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
     ColorPickerModule,
     DropdownModule,
     HttpClientModule,
-    CheckboxModule,
+    CheckboxModule, 
     PasswordModule,
     NgbModule,
     PanelModule,
@@ -87,7 +93,9 @@ import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
     ToolbarModule,
     ToastModule,
     ConfirmDialogModule,
-    NgxIntlTelInputModule
+    NgxIntlTelInputModule,
+    FullCalendarModule,
+    InputTextareaModule
   ],
   providers: [CarService,MessageService,ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } ],
