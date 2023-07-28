@@ -64,7 +64,7 @@ b {
     color: white;
     font-size: 17px;
     font-family: monospace;
-    padding-left: 4rem;
+    padding-left: 16rem;
   }
   .p-dialog .p-dialog-content{
     background: #ffffff;
@@ -118,4 +118,8 @@ b {
     width: 18px;
     height: 12px;
   }
+}
+
+::ng-deep full-calendar{
+  // background-color: white !important;
 }

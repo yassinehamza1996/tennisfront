@@ -45,6 +45,7 @@ import { AddCourtComponent } from './add-court/add-court.component';
 import { ManageCourtsComponent } from './manage-courts/manage-courts.component';
 import { BookingComponent } from './booking/booking.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -98,7 +99,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     InputTextareaModule
   ],
   providers: [CarService,MessageService,ConfirmationService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } ],
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true } ,DatePipe],
   bootstrap: [AppComponent]
   
 })
